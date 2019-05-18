@@ -213,7 +213,7 @@ import UIKit
         
         displayLink = CADisplayLink(target: self, selector: #selector(displayLinkDidFire(_:)))
         displayLink?.isPaused = false
-        displayLink?.add(to: .main, forMode: .commonModes)
+        displayLink?.add(to: .main, forMode: RunLoop.Mode.common)
     }
     
     private func setup() {
@@ -251,7 +251,7 @@ import UIKit
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         addSubview(imageView)
-        sendSubview(toBack: imageView)
+        sendSubviewToBack(imageView)
         
         let top = NSLayoutConstraint(item: imageView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
         let leading = NSLayoutConstraint(item: imageView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 0)
